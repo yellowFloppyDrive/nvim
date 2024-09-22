@@ -28,7 +28,7 @@ return {
       lspconfig.zls.setup({})
 
       vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, opts)
-      vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, opts)
+      vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, opts)
       vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
