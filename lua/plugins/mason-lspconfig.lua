@@ -12,6 +12,7 @@ return {
         ensure_installed = {
           "lua_ls",
           "ts_ls",
+          "zls",
         }
       })
     end
@@ -24,6 +25,7 @@ return {
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({})
       lspconfig.ts_ls.setup({})
+      lspconfig.zls.setup({})
 
       vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, opts)
       vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, opts)

@@ -15,3 +15,6 @@ vim.cmd("set listchars=eol:↩,tab:—➜,trail:~,extends:>,precedes:<")
 vim.cmd("set list")
 
 vim.g.mapleader = " "
+
+vim.keymap.set("v", "<leader>y", '"+y', {})
+vim.keymap.set("n", "<leader>p", '"+p', {})
