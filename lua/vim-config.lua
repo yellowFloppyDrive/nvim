@@ -11,7 +11,7 @@ vim.cmd("set number")
 vim.cmd("set relativenumber")
 
 vim.cmd("set colorcolumn=81")
-vim.cmd("set listchars=eol:↩,tab:—➜,trail:~,extends:>,precedes:<")
+vim.cmd("set listchars=tab:—>,trail:~")
 vim.cmd("set list")
 
 vim.g.mapleader = " "

@@ -13,6 +13,7 @@ return {
           "lua_ls",
           "ts_ls",
           "zls",
+          "intelephense",
         }
       })
     end
@@ -26,6 +27,7 @@ return {
       lspconfig.lua_ls.setup({})
       lspconfig.ts_ls.setup({})
       lspconfig.zls.setup({})
+      lspconfig.intelephense.setup({})
 
       vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, opts)
       vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, opts)
