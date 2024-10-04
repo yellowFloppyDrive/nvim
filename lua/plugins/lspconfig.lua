@@ -1,4 +1,5 @@
 local lsp_names = {
+  "clangd",
   "lua_ls",
   "ts_ls",
   "zls",

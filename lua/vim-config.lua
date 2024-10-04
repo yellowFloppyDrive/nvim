@@ -27,3 +27,5 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.keymap.set("n", "<CR>", '<CR>:cclose<CR>', {})
   end,
 })
+
+vim.diagnostic.config({ virtual_text = false })
