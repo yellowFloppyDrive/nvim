@@ -1,3 +1,12 @@
+local lsp_names = {
+  "lua_ls",
+  "ts_ls",
+  "zls",
+  "intelephense",
+  "html",
+  "cssls",
+}
+
 return {
   {
     "williamboman/mason.nvim",
@@ -9,13 +18,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = {
-          "lua_ls",
-          "ts_ls",
-          "zls",
-          "intelephense",
-          "html",
-        }
+        ensure_installed = lsp_names
       })
     end
   },
@@ -25,18 +28,18 @@ return {
       local opts = {}
 
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({})
-      lspconfig.ts_ls.setup({})
-      lspconfig.zls.setup({})
-      lspconfig.intelephense.setup({})
 
       --Enable (broadcasting) snippet capability for completion
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-      require'lspconfig'.html.setup {
-        capabilities = capabilities,
-      }
+      for _,lsp_name in pairs(lsp_names) do
+        local lsp = require('lspconfig')[lsp_name]
+
+        if lsp then
+          lsp.setup({ capabilities = capabilities })
+        end
+      end
 
       vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, opts)
       vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, opts)
