@@ -14,6 +14,7 @@ return {
           "ts_ls",
           "zls",
           "intelephense",
+          "html",
         }
       })
     end
@@ -28,6 +29,14 @@ return {
       lspconfig.ts_ls.setup({})
       lspconfig.zls.setup({})
       lspconfig.intelephense.setup({})
+
+      --Enable (broadcasting) snippet capability for completion
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+      require'lspconfig'.html.setup {
+        capabilities = capabilities,
+      }
 
       vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, opts)
       vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, opts)
