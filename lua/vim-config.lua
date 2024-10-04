@@ -19,3 +19,11 @@ vim.g.mapleader = " "
 vim.keymap.set("v", "<leader>y", '"+y', {})
 vim.keymap.set("n", "<leader>p", '"+p', {})
 vim.keymap.set("i", "<C-l>", '<C-N>', {})
+
+-- Quickfix list - autoclose on Enter pressed
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'qf',
+  callback = function(args)
+    vim.keymap.set("n", "<CR>", '<CR>:cclose<CR>', {})
+  end,
+})
